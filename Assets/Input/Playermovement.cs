@@ -16,6 +16,7 @@ public class Playermovement : MonoBehaviour
     private Rigidbody2D rb;
     [SerializeField] private float speed = 10;
     [SerializeField] private float Jumppower = 20;
+    [SerializeField] private int Jumpcount = 0;
     [SerializeField] private int Jumpindex = 2;
 
 
@@ -56,11 +57,24 @@ public class Playermovement : MonoBehaviour
     }
     void Jumpcode(InputAction.CallbackContext context)
     {
-        rb.velocity = new Vector2(rb.velocity.x, Jumppower);
+        if (Jumpcount < Jumpindex)
+        {
+            rb.velocity = new Vector2(rb.velocity.x, Jumppower);
+            Jumpcount++;
+        }
+       
     }
 
     void Attackcode(InputAction.CallbackContext context)
     {
         print("Attack");
+    }
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if(collision.gameObject.tag == "Ground")
+        {
+            Jumpcount = 0;
+        }
     }
 }
