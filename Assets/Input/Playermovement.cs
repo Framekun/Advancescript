@@ -53,7 +53,13 @@ public class Playermovement : MonoBehaviour
     void Movement()
     {
         movepos = Moveaction.ReadValue<Vector2>();
+        float horizontalInput = Moveaction.ReadValue<Vector2>().x;
+        if (horizontalInput != 0f)
+        {
+            transform.rotation = Quaternion.LookRotation(horizontalInput * Vector3.forward, Vector3.up);
+        }
         rb.velocity = new Vector2(movepos.x * speed, rb.velocity.y);
+        
     }
     void Jumpcode(InputAction.CallbackContext context)
     {
