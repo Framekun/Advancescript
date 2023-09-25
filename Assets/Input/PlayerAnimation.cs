@@ -13,31 +13,8 @@ public class PlayerAnimation : MonoBehaviour
 
     void Update()
     {
-        if(PlayerMove.movePos.x != 0)
-        {
-            Animation.SetBool("isRun", true);
-        }
-        else
-        {
-            Animation.SetBool("isRun", false);
-        }
-
-        if(PlayerMove.isJump == true)
-        {
-            Animation.SetBool("jump", true);
-        }
-        else
-        {
-            Animation.SetBool("jump", false);
-        }
-
-        if(PlayerMove.onGround == true)
-        {
-            Animation.SetBool("onGround", true);
-        }
-        else
-        {
-            Animation.SetBool("onGround", false);
-        }
+        Animation.SetBool("isRun", PlayerMove.movePos.x != 0);
+        Animation.SetBool("jump", PlayerMove.isJump);
+        Animation.SetBool("onGround", PlayerMove.onGround);
     }
 }
