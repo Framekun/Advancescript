@@ -233,10 +233,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fb7b4c22ba324bc41a39675d54c819be, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 10
-  Jumppower: 10
-  Jumpcount: 0
-  Jumpindex: 2
+  Speed: 10
+  JumpPower: 20
+  JumpCount: 0
+  JumpIndex: 2
+  IsJump: 0
+  isJump: 0
+  OnGround: 1
 --- !u!114 &128318602
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -627,6 +630,7 @@ GameObject:
   - component: {fileID: 1319775467}
   - component: {fileID: 1319775468}
   - component: {fileID: 1319775469}
+  - component: {fileID: 1319775470}
   m_Layer: 0
   m_Name: player-idle-1
   m_TagString: Untagged
@@ -722,6 +726,20 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &1319775470
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1319775466}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ba46fe5701e77dd448ae2e878349056d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Animation: {fileID: 1319775469}
+  PlayerMove: {fileID: 128318601}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0

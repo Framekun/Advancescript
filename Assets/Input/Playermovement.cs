@@ -4,43 +4,48 @@ using UnityEditor.Timeline.Actions;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-public class Playermovement : MonoBehaviour
+public class PlayerMovement : MonoBehaviour
 {
-    private PlayerInput controller;
+    private PlayerInput Controller;
 
-    private Playerinputcontrol control;
-    private InputAction Moveaction;
-    private InputAction Jumpaction;
-    private InputAction Attackaction;
-    Vector2 movepos;
-    private Rigidbody2D rb;
-    [SerializeField] private float speed = 10;
-    [SerializeField] private float Jumppower = 20;
-    [SerializeField] private int Jumpcount = 0;
-    [SerializeField] private int Jumpindex = 2;
+    private PlayerInputcontrol Control;
+    private InputAction MoveAction;
+    private InputAction JumpAction;
+    private InputAction AttackAction;
+    private Vector2 MovePos;
+    public  Vector2 movePos => MovePos;
+    private Rigidbody2D Rb;
+    [SerializeField] private float Speed = 10;
+    [SerializeField] private float JumpPower = 20;
+    [SerializeField] private int JumpCount = 0;
+    [SerializeField] private int JumpIndex = 2;
+    [SerializeField] private bool IsJump = false;
+    public bool isJump => IsJump;
+    [SerializeField] private bool OnGround = true;
+    public bool onGround => OnGround;
 
 
     void Awake()
     {
-        control = new Playerinputcontrol();
-        TryGetComponent(out controller);
-        TryGetComponent(out rb);
-        Attackaction = controller.actions[control.Player.Attack.name];
-        Jumpaction = controller.actions[control.Player.Jump.name];
-        Moveaction = controller.actions[control.Player.Move.name];
+        Control = new PlayerInputcontrol();
+        TryGetComponent(out Controller);
+        TryGetComponent(out Rb);
+        AttackAction = Controller.actions[Control.Player.Attack.name];
+        JumpAction = Controller.actions[Control.Player.Jump.name];
+        MoveAction = Controller.actions[Control.Player.Move.name];
         
     }
 
     private void OnEnable()
     {
-        Jumpaction.performed += Jumpcode;
-        Attackaction.performed += Attackcode;
+        JumpAction.performed += Jumpcode;
+        AttackAction.performed += Attackcode;
     }
 
     private void OnDisable()
     {
-        Jumpaction.performed -= Jumpcode;
-        Attackaction.performed -= Attackcode;
+        JumpAction.performed -= Jumpcode;
+        AttackAction.performed -= Attackcode;
     }
 
 
@@ -48,27 +53,31 @@ public class Playermovement : MonoBehaviour
     void Update()
     {
         Movement();
+        if (Rb.velocity.y <= 0)
+        {
+            IsJump = false;
+        }
     }
 
     void Movement()
     {
-        movepos = Moveaction.ReadValue<Vector2>();
-        float horizontalInput = Moveaction.ReadValue<Vector2>().x;
+        MovePos = MoveAction.ReadValue<Vector2>();
+        float horizontalInput = MoveAction.ReadValue<Vector2>().x;
         if (horizontalInput != 0f)
         {
             transform.rotation = Quaternion.LookRotation(horizontalInput * Vector3.forward, Vector3.up);
         }
-        rb.velocity = new Vector2(movepos.x * speed, rb.velocity.y);
+        Rb.velocity = new Vector2(MovePos.x * Speed, Rb.velocity.y);
         
     }
     void Jumpcode(InputAction.CallbackContext context)
     {
-        if (Jumpcount < Jumpindex)
+        if (JumpCount < JumpIndex)
         {
-            rb.velocity = new Vector2(rb.velocity.x, Jumppower);
-            Jumpcount++;
+            IsJump = true;
+            Rb.velocity = new Vector2(Rb.velocity.x, JumpPower);
+            JumpCount++;
         }
-       
     }
 
     void Attackcode(InputAction.CallbackContext context)
@@ -80,7 +89,16 @@ public class Playermovement : MonoBehaviour
     {
         if(collision.gameObject.tag == "Ground")
         {
-            Jumpcount = 0;
+            OnGround = true;
+            JumpCount = 0;
+        }
+    }
+
+    private void OnCollisionExit2D(Collision2D collision)
+    {
+        if (collision.gameObject.tag == "Ground")
+        {
+            OnGround = false;
         }
     }
 }
