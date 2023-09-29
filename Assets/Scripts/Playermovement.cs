@@ -8,10 +8,10 @@ public class PlayerMovement : MonoBehaviour
 {
     private PlayerInput Controller;
 
-    private PlayerInputcontrol Control;
+    private PlayerInputControl Control;
     private InputAction MoveAction;
     private InputAction JumpAction;
-    private InputAction AttackAction;
+   
     private Vector2 MovePos;
     public  Vector2 movePos => MovePos;
     private Rigidbody2D Rb;
@@ -27,25 +27,21 @@ public class PlayerMovement : MonoBehaviour
 
     void Awake()
     {
-        Control = new PlayerInputcontrol();
+        Control = new PlayerInputControl();
         TryGetComponent(out Controller);
         TryGetComponent(out Rb);
-        AttackAction = Controller.actions[Control.Player.Attack.name];
         JumpAction = Controller.actions[Control.Player.Jump.name];
         MoveAction = Controller.actions[Control.Player.Move.name];
-        
     }
 
     private void OnEnable()
     {
         JumpAction.performed += Jumpcode;
-        AttackAction.performed += Attackcode;
     }
 
     private void OnDisable()
     {
         JumpAction.performed -= Jumpcode;
-        AttackAction.performed -= Attackcode;
     }
 
 
@@ -78,11 +74,6 @@ public class PlayerMovement : MonoBehaviour
             Rb.velocity = new Vector2(Rb.velocity.x, JumpPower);
             JumpCount++;
         }
-    }
-
-    void Attackcode(InputAction.CallbackContext context)
-    {
-        print("Attack");
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
