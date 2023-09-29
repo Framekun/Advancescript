@@ -836,6 +836,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Animation: {fileID: 1319775469}
   PlayerMove: {fileID: 128318601}
+  PlayerAttack: {fileID: 0}
 --- !u!1 &1325219632
 GameObject:
   m_ObjectHideFlags: 0
@@ -886,7 +887,7 @@ CapsuleCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 2
