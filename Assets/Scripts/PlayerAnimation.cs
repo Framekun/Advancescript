@@ -17,6 +17,6 @@ public class PlayerAnimation : MonoBehaviour
         Animation.SetBool("isRun", PlayerMove.movePos.x != 0);
         Animation.SetBool("jump", PlayerMove.isJump);
         Animation.SetBool("onGround", PlayerMove.onGround);
-        //Animation.SetBool("attack", PlayerAttack.);
+
     }
 }
