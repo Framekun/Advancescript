@@ -7,20 +7,20 @@ public class PlayerAttack : MonoBehaviour
 {
 
     [SerializeField] private PlayerInput Controller;
-
     private PlayerInputControl Control;
 
     private InputAction AttackAction;
 
-    private GameObject AttackHit;
-    private bool Attacking = false;
+    private GameObject Object;
 
-    [SerializeField] Animator AttackAnim;
+    [SerializeField] private bool Attacking = false;
 
+    
     private void Start()
     {
-        AttackHit = transform.GetChild(0).gameObject;
+        Object = transform.GetChild(0).gameObject;
     }
+    
 
     private void Awake()
     {
@@ -37,22 +37,24 @@ public class PlayerAttack : MonoBehaviour
         {
             AttackAction.performed -= attackCode;
         }
-
+    
     private void Attack()
     {
         Attacking = true;
-        AttackHit.SetActive(Attacking);
+        //AttackHit.SetActive(Attacking);
+        Object.SetActive(Attacking);
 
     }
 
     public void attackCode(InputAction.CallbackContext context)
         {
         Debug.Log("Attack");
-
         if(AttackAction != null)
+
             {
             Attack();
             }
+
         }
 
     /*

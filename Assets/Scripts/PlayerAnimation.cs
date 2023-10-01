@@ -5,6 +5,7 @@ using UnityEngine;
 public class PlayerAnimation : MonoBehaviour
 {
     [SerializeField] Animator Animation;
+    [SerializeField] Animator AttackAnim;
     [SerializeField] PlayerMovement PlayerMove;
     [SerializeField] PlayerAttack PlayerAttack;
     void Start()
@@ -17,6 +18,7 @@ public class PlayerAnimation : MonoBehaviour
         Animation.SetBool("isRun", PlayerMove.movePos.x != 0);
         Animation.SetBool("jump", PlayerMove.isJump);
         Animation.SetBool("onGround", PlayerMove.onGround);
+        //AttackAnim.SetTrigger("attack", PlayerAttack.);
 
     }
 }
