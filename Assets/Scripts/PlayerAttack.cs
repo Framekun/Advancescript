@@ -15,9 +15,9 @@ public class PlayerAttack : MonoBehaviour
     public bool isAttack => Attacking;
 
     public delegate void AttackEvent();
-    public event AttackEvent OnAttack = delegate{};
-    
-    
+    public event AttackEvent OnAttack = delegate { };
+
+
 
     private void Awake()
     {
@@ -26,15 +26,15 @@ public class PlayerAttack : MonoBehaviour
     }
 
     private void OnEnable()
-        {
-            AttackAction.performed += attackCode;
-        }
+    {
+        AttackAction.performed += attackCode;
+    }
 
     private void OnDisable()
-        {
-            AttackAction.performed -= attackCode;
-        }
-    
+    {
+        AttackAction.performed -= attackCode;
+    }
+
     private void Attack()
     {
         Attacking = true;
