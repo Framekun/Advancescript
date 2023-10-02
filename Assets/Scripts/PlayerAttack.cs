@@ -11,8 +11,6 @@ public class PlayerAttack : MonoBehaviour
 
     private InputAction AttackAction;
 
-    private GameObject Object;
-
     [SerializeField] private bool Attacking = false;
     public bool isAttack => Attacking;
 

@@ -36,12 +36,12 @@ public class PlayerMovement : MonoBehaviour
 
     private void OnEnable()
     {
-        JumpAction.performed += Jumpcode;
+        JumpAction.performed += JumpCode;
     }
 
     private void OnDisable()
     {
-        JumpAction.performed -= Jumpcode;
+        JumpAction.performed -= JumpCode;
     }
 
 
@@ -66,7 +66,7 @@ public class PlayerMovement : MonoBehaviour
         Rb.velocity = new Vector2(MovePos.x * Speed, Rb.velocity.y);
         
     }
-    void Jumpcode(InputAction.CallbackContext context)
+    void JumpCode(InputAction.CallbackContext context)
     {
         if (JumpCount < JumpIndex)
         {
