@@ -135,6 +135,7 @@ GameObject:
   - component: {fileID: 128318598}
   - component: {fileID: 128318597}
   - component: {fileID: 128318601}
+  - component: {fileID: 128318603}
   - component: {fileID: 128318602}
   m_Layer: 0
   m_Name: Player
@@ -219,7 +220,6 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1319775467}
-  - {fileID: 1325219633}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &128318601
@@ -270,6 +270,20 @@ MonoBehaviour:
   m_DefaultActionMap: Player
   m_SplitScreenIndex: -1
   m_Camera: {fileID: 0}
+--- !u!114 &128318603
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 128318596}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5de8331b2a0652c478157be648258e77, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Controller: {fileID: 128318602}
+  Attacking: 0
 --- !u!1 &280566594
 GameObject:
   m_ObjectHideFlags: 0
@@ -746,7 +760,8 @@ Transform:
   m_LocalPosition: {x: 0.09, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 1325219633}
   m_Father: {fileID: 128318600}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &1319775468
@@ -836,7 +851,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Animation: {fileID: 1319775469}
   PlayerMove: {fileID: 128318601}
-  PlayerAttack: {fileID: 0}
+  PlayerAttack: {fileID: 128318603}
 --- !u!1 &1325219632
 GameObject:
   m_ObjectHideFlags: 0
@@ -847,16 +862,14 @@ GameObject:
   m_Component:
   - component: {fileID: 1325219633}
   - component: {fileID: 1325219634}
-  - component: {fileID: 1325219635}
   - component: {fileID: 1325219636}
-  - component: {fileID: 1325219637}
   m_Layer: 0
   m_Name: attackHit
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1325219633
 Transform:
   m_ObjectHideFlags: 0
@@ -865,12 +878,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1325219632}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1.004, y: -0.329, z: 0}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0.9139999, y: -0.329, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 1
   m_Children: []
-  m_Father: {fileID: 128318600}
+  m_Father: {fileID: 1319775467}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!136 &1325219634
 CapsuleCollider:
@@ -895,27 +908,6 @@ CapsuleCollider:
   m_Height: 1.25
   m_Direction: 0
   m_Center: {x: -0.14, y: 0.000000059604645, z: 0}
---- !u!95 &1325219635
-Animator:
-  serializedVersion: 5
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1325219632}
-  m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 77155103add45d34ebb7f8264a5a3197, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_StabilizeFeet: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorStateOnDisable: 0
-  m_WriteDefaultValuesOnDisable: 0
 --- !u!212 &1325219636
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -968,18 +960,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &1325219637
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1325219632}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5de8331b2a0652c478157be648258e77, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &2052205199
 GameObject:
   m_ObjectHideFlags: 0
@@ -1024,14 +1004,14 @@ MonoBehaviour:
   m_GameObject: {fileID: 2052205199}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 87763d04ac4156343b59a5239857702d, type: 3}
+  m_Script: {fileID: 11500000, guid: d0f8909b8d645d940aaec04a06e281ff, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   WayPoints:
   - {fileID: 1124678481}
   - {fileID: 280566595}
   MoveSpeed: 3
-  DetectionRadius: 3
+  DetectionRadius: 5
 --- !u!50 &2052205202
 Rigidbody2D:
   serializedVersion: 4

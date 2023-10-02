@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-public class PlayerAttack : MonoBehaviour 
+public class PlayerAttack : MonoBehaviour
 {
 
     [SerializeField] private PlayerInput Controller;
@@ -14,12 +14,11 @@ public class PlayerAttack : MonoBehaviour
     private GameObject Object;
 
     [SerializeField] private bool Attacking = false;
+    public bool isAttack => Attacking;
 
+    public delegate void AttackEvent();
+    public event AttackEvent OnAttack = delegate{};
     
-    private void Start()
-    {
-        Object = transform.GetChild(0).gameObject;
-    }
     
 
     private void Awake()
@@ -41,26 +40,12 @@ public class PlayerAttack : MonoBehaviour
     private void Attack()
     {
         Attacking = true;
-        //AttackHit.SetActive(Attacking);
-        Object.SetActive(Attacking);
+        OnAttack?.Invoke();
 
     }
 
     public void attackCode(InputAction.CallbackContext context)
-        {
-        Debug.Log("Attack");
-        if(AttackAction != null)
-
-            {
-            Attack();
-            }
-
-        }
-
-    /*
-    private void Update(Animator SetTrigger)
     {
-        Animation.SetTrigger("attack", PlayerAttack.attackCode);
+        Attack();
     }
-    */
 }
