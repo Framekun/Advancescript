@@ -12,10 +12,14 @@ public class PlayerAttack : MonoBehaviour
     private InputAction AttackAction;
 
     [SerializeField] private bool Attacking = false;
+
+    private Collider2D PlayerHitBox;
+
+    private GameObject ObjectToHit;
     public bool isAttack => Attacking;
 
-    public delegate void AttackEvent();
-    public event AttackEvent OnAttack = delegate { };
+    public delegate void attackEvent();
+    public event attackEvent OnAttack = delegate { };
 
 
 
@@ -39,11 +43,21 @@ public class PlayerAttack : MonoBehaviour
     {
         Attacking = true;
         OnAttack?.Invoke();
-
     }
 
     public void attackCode(InputAction.CallbackContext context)
     {
         Attack();
     }
+    
+    private void Update()
+    {
+        PlayerHitBox = ObjectToHit.GetComponent<Collider2D>();
+    }
+
+    private void OnTriggerEnter(Collider collider)
+    {
+        Debug.Log("Hit");
+    }
 }
+
