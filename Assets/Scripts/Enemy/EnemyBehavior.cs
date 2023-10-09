@@ -11,6 +11,7 @@ public class EnemyBehavior : MonoBehaviour
     private int CurrentWaypointIndex = 0;
     private Transform Player;
     private bool FollowingPlayer = false;
+    [SerializeField] private string HitboxName;
 
     void Start()
     {
@@ -61,12 +62,20 @@ public class EnemyBehavior : MonoBehaviour
         }
     }
 
-    private void OnCollisionEnter2D(Collision2D collision2D)
+    private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision2D.gameObject.CompareTag("AttackHit"))
+        if (collision.tag == HitboxName)
         {
             Debug.Log("Get Hit!");
             Destroy(gameObject);
         }
     }
+    //private void OnCollisionEnter2D(Collision2D collision2D)
+    //{
+    //    if (collision2D.gameObject.CompareTag("AttackHit"))
+    //    {
+    //        Debug.Log("Get Hit!");
+    //        Destroy(gameObject);
+    //    }
+    //}
 }
