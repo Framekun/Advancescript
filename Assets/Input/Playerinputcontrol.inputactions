@@ -1,5 +1,5 @@
 {
-    "name": "Playerinputcontrol",
+    "name": "PlayerInputControl",
     "maps": [
         {
             "name": "Player",
@@ -30,6 +30,15 @@
                     "expectedControlType": "Button",
                     "processors": "",
                     "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "Splint",
+                    "type": "Button",
+                    "id": "7eee5bdb-3283-4f12-a156-bcfc2b26e55b",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "Hold",
                     "initialStateCheck": false
                 }
             ],
@@ -86,6 +95,17 @@
                     "processors": "",
                     "groups": "",
                     "action": "Attack",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "a716a850-a11b-4503-9d29-9ffa40212d6f",
+                    "path": "<Keyboard>/shift",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Splint",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }
