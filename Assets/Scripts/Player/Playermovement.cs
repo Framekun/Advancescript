@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEditor.Timeline.Actions;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.Rendering;
 
 public class PlayerMovement : MonoBehaviour
 {
@@ -24,7 +25,6 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private bool OnGround = true;
     public bool onGround => OnGround;
 
-
     void Awake()
     {
         Control = new PlayerInputControl();
@@ -44,8 +44,6 @@ public class PlayerMovement : MonoBehaviour
         JumpAction.performed -= JumpCode;
     }
 
-
-    // Update is called once per frame
     void Update()
     {
         Movement();

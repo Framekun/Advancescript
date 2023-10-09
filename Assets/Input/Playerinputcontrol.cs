@@ -56,12 +56,12 @@ public partial class @PlayerInputControl: IInputActionCollection2, IDisposable
                 },
                 {
                     ""name"": ""Splint"",
-                    ""type"": ""Button"",
+                    ""type"": ""Value"",
                     ""id"": ""7eee5bdb-3283-4f12-a156-bcfc2b26e55b"",
-                    ""expectedControlType"": ""Button"",
+                    ""expectedControlType"": """",
                     ""processors"": """",
-                    ""interactions"": ""Hold"",
-                    ""initialStateCheck"": false
+                    ""interactions"": """",
+                    ""initialStateCheck"": true
                 }
             ],
             ""bindings"": [
