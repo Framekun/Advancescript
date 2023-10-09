@@ -45,7 +45,22 @@ public class EnemyBehavior : MonoBehaviour
                 CurrentWaypointIndex = (CurrentWaypointIndex + 1) % WayPoints.Length;
             }
         }
+
+        EnemyRotation();
     }
+
+    private void EnemyRotation()
+    {
+        if (transform.position.x < Player.position.x) //fix : if +x = look right
+        {
+            transform.localScale = new Vector2(1, 1);
+        }
+        else if (transform.position.x > Player.position.x) //fix : if -x = look left 
+        {
+            transform.localScale = new Vector2(-1, 1);
+        }
+    }
+
     private void OnCollisionEnter2D(Collision2D collision2D)
     {
         if (collision2D.gameObject.CompareTag("AttackHit"))
