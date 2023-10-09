@@ -5,6 +5,7 @@ using UnityEngine;
 public class EnemyBehavior : MonoBehaviour
 {
     [SerializeField] private Transform[] WayPoints;
+    [SerializeField] private Transform[] Hitbox;
     [SerializeField] private float MoveSpeed = 3f;
     [SerializeField] private float DetectionRadius = 5f;
     private int CurrentWaypointIndex = 0;
@@ -43,6 +44,14 @@ public class EnemyBehavior : MonoBehaviour
             {
                 CurrentWaypointIndex = (CurrentWaypointIndex + 1) % WayPoints.Length;
             }
+        }
+    }
+    private void OnCollisionEnter2D(Collision2D collision2D)
+    {
+        if (collision2D.gameObject.CompareTag("AttackHit"))
+        {
+            Debug.Log("Get Hit!");
+            Destroy(gameObject);
         }
     }
 }

@@ -45,6 +45,7 @@ public class PlayerAttack : MonoBehaviour
     public void attackCode(InputAction.CallbackContext context)
     {
         Attack();
+        Debug.Log("Attack");
     }
 }
 
