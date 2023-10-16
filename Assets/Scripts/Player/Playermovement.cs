@@ -17,14 +17,17 @@ public class PlayerMovement : MonoBehaviour
     public  Vector2 movePos => MovePos;
     private Rigidbody2D Rb;
     [SerializeField] private float Speed = 10;
+    [SerializeField] private float CurrentSpeed;
     [SerializeField] private float JumpPower = 20;
     [SerializeField] private int JumpCount = 0;
-    [SerializeField] private int JumpIndex = 2;
+    [SerializeField] private int JumpIndex = 1;
     [SerializeField] private bool IsJump = false;
     public bool isJump => IsJump;
     [SerializeField] private bool OnGround = true;
     public bool onGround => OnGround;
-
+    public float speed => Speed;
+    [SerializeField] private PlayerSplint Splint;
+    [SerializeField] private Item ItemCollect;
     void Awake()
     {
         Control = new PlayerInputControl();
@@ -37,11 +40,15 @@ public class PlayerMovement : MonoBehaviour
     private void OnEnable()
     {
         JumpAction.performed += JumpCode;
+        Splint.SplintSpeedValue += SplintMovement;
+        ItemCollect.AddJumpIndex += JumpIndexUpdate;
     }
 
     private void OnDisable()
     {
         JumpAction.performed -= JumpCode;
+        Splint.SplintSpeedValue -= SplintMovement;
+        ItemCollect.AddJumpIndex -= JumpIndexUpdate;
     }
 
     void Update()
@@ -61,9 +68,15 @@ public class PlayerMovement : MonoBehaviour
         {
             transform.rotation = Quaternion.LookRotation(horizontalInput * Vector3.forward, Vector3.up);
         }
-        Rb.velocity = new Vector2(MovePos.x * Speed, Rb.velocity.y);
+        Rb.velocity = new Vector2(MovePos.x * CurrentSpeed, Rb.velocity.y);
         
     }
+
+    void SplintMovement(float splintSpeed)
+    {
+        CurrentSpeed = splintSpeed;
+    }
+
     void JumpCode(InputAction.CallbackContext context)
     {
         if (JumpCount < JumpIndex)
@@ -74,6 +87,10 @@ public class PlayerMovement : MonoBehaviour
         }
     }
 
+    void JumpIndexUpdate(int index)
+    {
+        JumpIndex += index;
+    }
     private void OnCollisionEnter2D(Collision2D collision)
     {
         if(collision.gameObject.tag == "Ground")

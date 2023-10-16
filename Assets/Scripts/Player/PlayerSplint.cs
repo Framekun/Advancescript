@@ -10,8 +10,11 @@ public class PlayerSplint : MonoBehaviour
     private PlayerInputControl Control;
     private InputAction SplintAction;
    
-    [SerializeField] private float ReadValue;
+    [SerializeField] private float ReadSpeedValue;
     [SerializeField] private float SplintSpeed;
+    [SerializeField] private PlayerMovement PlayerMove;
+    public delegate void splintSpeedValue(float _value);
+    public splintSpeedValue SplintSpeedValue;
 
     void Awake()
     {
@@ -21,10 +24,14 @@ public class PlayerSplint : MonoBehaviour
     }
     private void Update()
     {
-        ReadValue = SplintAction.ReadValue<float>();
-        if(ReadValue != 0)
+        ReadSpeedValue = SplintAction.ReadValue<float>();
+        if(ReadSpeedValue != 0)
         {
-            
+            SplintSpeedValue.Invoke(SplintSpeed);
+        }
+        else
+        {
+            SplintSpeedValue.Invoke(PlayerMove.speed);
         }
     }
 }
