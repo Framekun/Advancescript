@@ -5,6 +5,9 @@ using UnityEngine;
 public class Item : MonoBehaviour
 {
     [SerializeField] private string TargetName;
+    [SerializeField] private int GainIndex;
+    public delegate void addJumpIndex(int gainindex);
+    public addJumpIndex AddJumpIndex;
     void Start()
     {
         
@@ -25,6 +28,7 @@ public class Item : MonoBehaviour
     {
         if(collision.tag == TargetName)
         {
+            AddJumpIndex.Invoke(GainIndex);
             OnDestroyTarget();
         }
     }

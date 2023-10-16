@@ -134,6 +134,7 @@ GameObject:
   - component: {fileID: 128318600}
   - component: {fileID: 128318598}
   - component: {fileID: 128318597}
+  - component: {fileID: 128318605}
   - component: {fileID: 128318601}
   - component: {fileID: 128318603}
   - component: {fileID: 128318604}
@@ -236,11 +237,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Speed: 10
+  CurrentSpeed: 0
   JumpPower: 20
   JumpCount: 0
-  JumpIndex: 2
+  JumpIndex: 1
   IsJump: 0
   OnGround: 1
+  Splint: {fileID: 128318604}
+  ItemCollect: {fileID: 603096210}
 --- !u!114 &128318602
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -298,7 +302,22 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Controller: {fileID: 128318602}
-  SplintCheck: 0
+  ReadSpeedValue: 0
+  SplintSpeed: 20
+  PlayerMove: {fileID: 128318601}
+--- !u!114 &128318605
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 128318596}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2fc48892605dee04fa269ad7484d8d5f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  HP: 100
 --- !u!1 &280566594
 GameObject:
   m_ObjectHideFlags: 0
@@ -534,6 +553,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   TargetName: Player
+  GainIndex: 1
 --- !u!212 &603096211
 SpriteRenderer:
   m_ObjectHideFlags: 0
