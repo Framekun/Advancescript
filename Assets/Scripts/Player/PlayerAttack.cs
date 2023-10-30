@@ -10,14 +10,14 @@ public class PlayerAttack : MonoBehaviour
     private PlayerInputControl Control;
 
     private InputAction AttackAction;
-
+    [SerializeField] private bool CanAttack = false;
     [SerializeField] private bool Attacking = false;
 
     public bool isAttack => Attacking;
 
     public delegate void attackEvent();
     public event attackEvent OnAttack = delegate { };
-
+    [SerializeField] private Item2 ItemCollect;
 
 
     private void Awake()
@@ -29,6 +29,7 @@ public class PlayerAttack : MonoBehaviour
     private void OnEnable()
     {
         AttackAction.performed += attackCode;
+        ItemCollect.AddAttackIndex += AttackUpdate;
     }
 
     private void OnDisable()
@@ -36,6 +37,10 @@ public class PlayerAttack : MonoBehaviour
         AttackAction.performed -= attackCode;
     }
 
+    void AttackUpdate(bool input)
+    {
+        CanAttack = input;
+    }
     private void Attack()
     {
         Attacking = true;
@@ -44,8 +49,11 @@ public class PlayerAttack : MonoBehaviour
 
     public void attackCode(InputAction.CallbackContext context)
     {
-        Attack();
-        Debug.Log("Attack");
+        if(CanAttack == true)
+        {
+            Attack();
+            Debug.Log("Attack");
+        }
     }
 }
 
