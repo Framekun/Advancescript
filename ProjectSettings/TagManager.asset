@@ -7,6 +7,7 @@ TagManager:
   - Ground
   - AttackHit
   - Enemy
+  - Hazard Zone
   layers:
   - Default
   - TransparentFX
