@@ -30,6 +30,10 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private Item ItemCollect;
     void Awake()
     {
+        if (ItemCollect == null)
+        {
+            TryGetComponent(out ItemCollect);
+        }
         Control = new PlayerInputControl();
         TryGetComponent(out Controller);
         TryGetComponent(out Rb);
@@ -41,14 +45,21 @@ public class PlayerMovement : MonoBehaviour
     {
         JumpAction.performed += JumpCode;
         Splint.SplintSpeedValue += SplintMovement;
-        ItemCollect.AddJumpIndex += JumpIndexUpdate;
+        if (ItemCollect != null)
+        {
+            ItemCollect.AddJumpIndex += JumpIndexUpdate;
+        }
     }
 
     private void OnDisable()
     {
+        ItemCollect = GetComponent<Item>();
         JumpAction.performed -= JumpCode;
         Splint.SplintSpeedValue -= SplintMovement;
-        ItemCollect.AddJumpIndex -= JumpIndexUpdate;
+        if (ItemCollect != null)
+        {
+            ItemCollect.AddJumpIndex -= JumpIndexUpdate;
+        }
     }
 
     void Update()

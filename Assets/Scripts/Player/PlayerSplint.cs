@@ -20,13 +20,17 @@ public class PlayerSplint : MonoBehaviour
 
     void Awake()
     {
+        ItemCollect = GetComponent<Item3>();
         Control = new PlayerInputControl();
         TryGetComponent(out Controller);
         SplintAction = Controller.actions[Control.Player.Splint.name];
     }
     private void OnEnable()
     {
-        ItemCollect.AddSpintIndex += UpdateSplint;
+        if (ItemCollect != null)
+        {
+            ItemCollect.AddSpintIndex += UpdateSplint;
+        }
     }
 
     void UpdateSplint(bool input)

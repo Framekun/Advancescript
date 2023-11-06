@@ -29,12 +29,19 @@ public class PlayerAttack : MonoBehaviour
     private void OnEnable()
     {
         AttackAction.performed += attackCode;
-        ItemCollect.AddAttackIndex += AttackUpdate;
+        if (ItemCollect != null)
+        {
+            ItemCollect.AddAttackIndex += AttackUpdate;
+        }
+        
     }
 
     private void OnDisable()
     {
-        AttackAction.performed -= attackCode;
+        if (ItemCollect != null)
+        {
+            ItemCollect.AddAttackIndex -= AttackUpdate;
+        }
     }
 
     void AttackUpdate(bool input)
