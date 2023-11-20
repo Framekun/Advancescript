@@ -11,9 +11,10 @@ GameObject:
   - component: {fileID: 629212650866723341}
   - component: {fileID: 3350425714715596830}
   - component: {fileID: 8705742903572949438}
+  - component: {fileID: 4428965671079508523}
   m_Layer: 0
   m_Name: Spike2
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -114,12 +115,24 @@ CapsuleCollider2D:
   m_CallbackLayers:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0.015365601, y: 0.16730294}
   m_Size: {x: 1.1536541, y: 0.91193986}
   m_Direction: 0
+--- !u!114 &4428965671079508523
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2526051988736485414}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d942cdcc7a9be374697328a4237fd026, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &3748231154508622381
 GameObject:
   m_ObjectHideFlags: 0
@@ -200,9 +213,10 @@ GameObject:
   - component: {fileID: 2063351599966617450}
   - component: {fileID: 2022588321254703460}
   - component: {fileID: 2335815066064389413}
+  - component: {fileID: 5147509749996589768}
   m_Layer: 0
   m_Name: Spike3
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -303,12 +317,24 @@ CapsuleCollider2D:
   m_CallbackLayers:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0.015365601, y: 0.16730294}
   m_Size: {x: 1.1536541, y: 0.91193986}
   m_Direction: 0
+--- !u!114 &5147509749996589768
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8047141546838716570}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d942cdcc7a9be374697328a4237fd026, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &8371164454183706013
 GameObject:
   m_ObjectHideFlags: 0
@@ -320,9 +346,10 @@ GameObject:
   - component: {fileID: 582073194571812264}
   - component: {fileID: 2147615078744668504}
   - component: {fileID: 999441156722192881}
+  - component: {fileID: 5245711712453983305}
   m_Layer: 0
   m_Name: Spike1
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -423,9 +450,21 @@ CapsuleCollider2D:
   m_CallbackLayers:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0.015365601, y: 0.16730294}
   m_Size: {x: 1.1536541, y: 0.91193986}
   m_Direction: 0
+--- !u!114 &5245711712453983305
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8371164454183706013}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d942cdcc7a9be374697328a4237fd026, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
