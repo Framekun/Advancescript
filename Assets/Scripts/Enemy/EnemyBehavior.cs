@@ -12,10 +12,12 @@ public class EnemyBehavior : MonoBehaviour
     private Transform Player;
     private bool FollowingPlayer = false;
     [SerializeField] private string HitboxName;
+    private Animator Anim;
 
     void Start()
     {
         Player = GameObject.FindGameObjectWithTag("Player").transform;
+        Anim = GetComponent<Animator>();
     }
 
     void Update()
@@ -34,6 +36,8 @@ public class EnemyBehavior : MonoBehaviour
             Vector3 targetDirection = Player.position - transform.position;
             targetDirection.Normalize();
             transform.Translate(targetDirection * MoveSpeed * Time.deltaTime);
+            Anim.SetBool("seePlayer", true);
+            Debug.Log("follow player");
         }
         else
         {
@@ -45,6 +49,8 @@ public class EnemyBehavior : MonoBehaviour
             {
                 CurrentWaypointIndex = (CurrentWaypointIndex + 1) % WayPoints.Length;
             }
+            Anim.SetBool("seePlayer", false);
+            Debug.Log("not follow player");
         }
 
         EnemyRotation();
