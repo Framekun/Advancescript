@@ -6,18 +6,28 @@ using UnityEngine;
 public class Cinimachinecode : MonoBehaviour
 {
     [SerializeField] private CinemachineVirtualCamera Cam;
-    [SerializeField] private GameObject Target;
+    [SerializeField] private Transform Player;
     void Start()
     {
-        if (Target == null)
-        {
-            Target = GameObject.FindGameObjectWithTag("Player");
-        }
+        
     }
 
     // Update is called once per frame
     void Update()
     {
-        Cam.Follow = Target.transform;
+        if (Player == null)
+        {
+            var PlayerObject = GameObject.FindGameObjectWithTag("Player");
+            if (PlayerObject != null)
+            {
+                Player = PlayerObject.transform;
+            }
+            else
+            {
+                return;
+            }
+        }
+
+        Cam.Follow = Player.transform;
     }
 }

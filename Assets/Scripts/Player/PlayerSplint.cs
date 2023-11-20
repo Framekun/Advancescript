@@ -16,29 +16,20 @@ public class PlayerSplint : MonoBehaviour
     [SerializeField] private PlayerMovement PlayerMove;
     public delegate void splintSpeedValue(float _value);
     public splintSpeedValue SplintSpeedValue;
-    [SerializeField] private Item3 ItemCollect;
 
     void Awake()
     {
-        if (ItemCollect == null)
-        {
-            TryGetComponent(out ItemCollect);
-        }
         Control = new PlayerInputControl();
         TryGetComponent(out Controller);
         SplintAction = Controller.actions[Control.Player.Splint.name];
     }
     private void OnEnable()
     {
-        if (ItemCollect != null)
-        {
-            ItemCollect.AddSpintIndex += UpdateSplint;
-        }
     }
 
-    void UpdateSplint(bool input)
+    public void EnableSprint()
     {
-        CanSplint = input;
+        CanSplint = true;
     }
     private void Update()
     {

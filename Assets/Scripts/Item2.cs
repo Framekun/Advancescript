@@ -2,34 +2,13 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Item2 : MonoBehaviour
+public class Item2 : MonoBehaviour, IUpgradeItem
 {
-    [SerializeField] private string TargetName;
-    [SerializeField] private bool GainBool;
-    public delegate void addAttackIndex(bool gainbool);
-    public addAttackIndex AddAttackIndex;
-    void Start()
+    public void GiveUpgrade(PlayerMovement player)
     {
-
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-
-    }
-
-    private void OnDestroyTarget()
-    {
-        gameObject.SetActive(false);
-    }
-
-    private void OnTriggerEnter2D(Collider2D collision)
-    {
-        if (collision.tag == TargetName)
+        if (player.gameObject.TryGetComponent(out PlayerAttack playerAttack))
         {
-            AddAttackIndex.Invoke(GainBool);
-            OnDestroyTarget();
+            playerAttack.EnableAttack();
         }
     }
 }

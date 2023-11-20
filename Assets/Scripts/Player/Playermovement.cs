@@ -22,6 +22,9 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private int JumpCount = 0;
     [SerializeField] private int JumpIndex = 1;
     [SerializeField] private bool IsJump = false;
+    [SerializeField] private Transform GroundCheckTransform;
+    [SerializeField] private float GroundCheckRadius = 0.1f;
+    [SerializeField] private LayerMask GroundCheckLayerMask;
     public bool isJump => IsJump;
     [SerializeField] private bool OnGround = true;
     public bool onGround => OnGround;
@@ -45,10 +48,6 @@ public class PlayerMovement : MonoBehaviour
     {
         JumpAction.performed += JumpCode;
         Splint.SplintSpeedValue += SplintMovement;
-        if (ItemCollect != null)
-        {
-            ItemCollect.AddJumpIndex += JumpIndexUpdate;
-        }
     }
 
     private void OnDisable()
@@ -56,10 +55,6 @@ public class PlayerMovement : MonoBehaviour
         ItemCollect = GetComponent<Item>();
         JumpAction.performed -= JumpCode;
         Splint.SplintSpeedValue -= SplintMovement;
-        if (ItemCollect != null)
-        {
-            ItemCollect.AddJumpIndex -= JumpIndexUpdate;
-        }
     }
 
     void Update()
@@ -68,6 +63,14 @@ public class PlayerMovement : MonoBehaviour
         if (Rb.velocity.y <= 0)
         {
             IsJump = false;
+        }
+
+        OnGround = false;
+        if (Physics2D.OverlapCircle(GroundCheckTransform.position, GroundCheckRadius, GroundCheckLayerMask)
+            && Rb.velocity.y <= 0f)
+        {
+            OnGround = true;
+            JumpCount = 0;
         }
     }
 
@@ -98,24 +101,17 @@ public class PlayerMovement : MonoBehaviour
         }
     }
 
-    void JumpIndexUpdate(int index)
+    public void AddJump(int amount)
     {
-        JumpIndex += index;
-    }
-    private void OnCollisionEnter2D(Collision2D collision)
-    {
-        if(collision.gameObject.tag == "Ground")
-        {
-            OnGround = true;
-            JumpCount = 0;
-        }
+        JumpIndex += amount;
     }
 
-    private void OnCollisionExit2D(Collision2D collision)
+    private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.gameObject.tag == "Ground")
+        if (collision.TryGetComponent(out IUpgradeItem item))
         {
-            OnGround = false;
+            item.GiveUpgrade(this);
+            Destroy(collision.gameObject);
         }
     }
 }

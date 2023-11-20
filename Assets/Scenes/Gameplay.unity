@@ -170,7 +170,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerPrefab: {fileID: 2196121813624690299, guid: 5d5917fe01a958645bdaee013a150c39, type: 3}
-  _spawnOnStart: 1
+  _spawnOnStart: 0
 --- !u!114 &440685773
 MonoBehaviour:
   m_ObjectHideFlags: 0

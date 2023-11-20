@@ -17,41 +17,24 @@ public class PlayerAttack : MonoBehaviour
 
     public delegate void attackEvent();
     public event attackEvent OnAttack = delegate { };
-    [SerializeField] private Item2 ItemCollect;
-
 
     private void Awake()
     {
         Control = new PlayerInputControl();
         AttackAction = Controller.actions[Control.Player.Attack.name];
-        if( ItemCollect == null )
-        {
-            TryGetComponent(out ItemCollect);
-        }
     }
 
     private void OnEnable()
     {
         AttackAction.performed += attackCode;
-        if (ItemCollect != null)
-        {
-            ItemCollect.AddAttackIndex += AttackUpdate;
-        }
         
     }
 
     private void OnDisable()
     {
-        if (ItemCollect != null)
-        {
-            ItemCollect.AddAttackIndex -= AttackUpdate;
-        }
+        AttackAction.performed -= attackCode;
     }
 
-    void AttackUpdate(bool input)
-    {
-        CanAttack = input;
-    }
     private void Attack()
     {
         Attacking = true;
@@ -65,6 +48,11 @@ public class PlayerAttack : MonoBehaviour
             Attack();
             Debug.Log("Attack");
         }
+    }
+
+    public void EnableAttack()
+    {
+        CanAttack = true;
     }
 }
 

@@ -16,12 +16,24 @@ public class EnemyBehavior : MonoBehaviour
 
     void Start()
     {
-        Player = GameObject.FindGameObjectWithTag("Player").transform;
         Anim = GetComponent<Animator>();
     }
 
     void Update()
     {
+        if (Player == null)
+        {
+            var PlayerObject = GameObject.FindGameObjectWithTag("Player");
+            if (PlayerObject != null)
+            {
+                Player = PlayerObject.transform;
+            }
+            else
+            {
+                return;
+            }
+        }
+
         if (Vector3.Distance(transform.position, Player.position) <= DetectionRadius)
         {
             FollowingPlayer = true;
