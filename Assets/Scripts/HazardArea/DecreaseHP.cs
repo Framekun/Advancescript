@@ -10,7 +10,7 @@ public class DecreasedHP : MonoBehaviour
     public float Damage => _damage;
     void Update()
     {
-        Debug.Log("Hp -20");
+        
     }
 
    

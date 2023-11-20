@@ -20,7 +20,10 @@ public class PlayerSplint : MonoBehaviour
 
     void Awake()
     {
-        ItemCollect = GetComponent<Item3>();
+        if (ItemCollect == null)
+        {
+            TryGetComponent(out ItemCollect);
+        }
         Control = new PlayerInputControl();
         TryGetComponent(out Controller);
         SplintAction = Controller.actions[Control.Player.Splint.name];

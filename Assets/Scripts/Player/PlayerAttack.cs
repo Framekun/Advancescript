@@ -24,6 +24,10 @@ public class PlayerAttack : MonoBehaviour
     {
         Control = new PlayerInputControl();
         AttackAction = Controller.actions[Control.Player.Attack.name];
+        if( ItemCollect == null )
+        {
+            TryGetComponent(out ItemCollect);
+        }
     }
 
     private void OnEnable()
