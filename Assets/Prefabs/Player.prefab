@@ -324,7 +324,7 @@ CapsuleCollider2D:
   m_GameObject: {fileID: 6088434554580782292}
   m_Enabled: 1
   m_Density: 1
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 6200000, guid: b6cccd1628296eb4d896193b55c74b1d, type: 2}
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0
@@ -406,9 +406,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Speed: 10
   CurrentSpeed: 0
-  JumpPower: 20
+  JumpPower: 13
   JumpCount: 0
-  JumpIndex: 1
   IsJump: 0
   GroundCheckTransform: {fileID: 7233805662561175405}
   GroundCheckRadius: 0.1
@@ -431,7 +430,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Controller: {fileID: 6629738270982413271}
-  CanAttack: 0
   Attacking: 0
 --- !u!114 &2214964826300406625
 MonoBehaviour:
@@ -446,7 +444,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Controller: {fileID: 6629738270982413271}
-  CanSplint: 0
   ReadSpeedValue: 0
   SplintSpeed: 20
   PlayerMove: {fileID: 8453479253462231562}

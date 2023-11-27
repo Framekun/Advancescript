@@ -10,7 +10,7 @@ public class PlayerSplint : MonoBehaviour
     [SerializeField] private PlayerInput Controller;
     private PlayerInputControl Control;
     private InputAction SplintAction;
-    [SerializeField] private bool CanSplint = false;
+    private bool CanSplint => PlayerStatController.Instance.CanSprint;
     [SerializeField] private float ReadSpeedValue;
     [SerializeField] private float SplintSpeed;
     [SerializeField] private PlayerMovement PlayerMove;
@@ -25,11 +25,6 @@ public class PlayerSplint : MonoBehaviour
     }
     private void OnEnable()
     {
-    }
-
-    public void EnableSprint()
-    {
-        CanSplint = true;
     }
     private void Update()
     {

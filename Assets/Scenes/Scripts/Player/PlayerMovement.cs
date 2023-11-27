@@ -20,7 +20,9 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private float CurrentSpeed;
     [SerializeField] private float JumpPower = 20;
     [SerializeField] private int JumpCount = 0;
-    [SerializeField] private int JumpIndex = 1;
+
+    private int JumpIndex => PlayerStatController.Instance.JumpCount;
+
     [SerializeField] private bool IsJump = false;
     [SerializeField] private Transform GroundCheckTransform;
     [SerializeField] private float GroundCheckRadius = 0.1f;
@@ -99,11 +101,6 @@ public class PlayerMovement : MonoBehaviour
             Rb.velocity = new Vector2(Rb.velocity.x, JumpPower);
             JumpCount++;
         }
-    }
-
-    public void AddJump(int amount)
-    {
-        JumpIndex += amount;
     }
 
     private void OnTriggerEnter2D(Collider2D collision)

@@ -10,7 +10,7 @@ public class PlayerAttack : MonoBehaviour
     private PlayerInputControl Control;
 
     private InputAction AttackAction;
-    [SerializeField] private bool CanAttack = false;
+    private bool CanAttack => PlayerStatController.Instance.CanAttack;
     [SerializeField] private bool Attacking = false;
 
     public bool isAttack => Attacking;
@@ -48,11 +48,6 @@ public class PlayerAttack : MonoBehaviour
             Attack();
             Debug.Log("Attack");
         }
-    }
-
-    public void EnableAttack()
-    {
-        CanAttack = true;
     }
 }
 
