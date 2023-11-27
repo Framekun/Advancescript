@@ -339,7 +339,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Cam: {fileID: 14672499}
-  Target: {fileID: 0}
+  Player: {fileID: 0}
 --- !u!1 &65428089
 GameObject:
   m_ObjectHideFlags: 0
@@ -7312,6 +7312,18 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2022588321254703460, guid: 2b1d777721b59174cab96e39f1181a5e, type: 3}
+      propertyPath: m_SortingOrder
+      value: -1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2147615078744668504, guid: 2b1d777721b59174cab96e39f1181a5e, type: 3}
+      propertyPath: m_SortingOrder
+      value: -1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3350425714715596830, guid: 2b1d777721b59174cab96e39f1181a5e, type: 3}
+      propertyPath: m_SortingOrder
+      value: -1
+      objectReference: {fileID: 0}
     - target: {fileID: 3748231154508622381, guid: 2b1d777721b59174cab96e39f1181a5e, type: 3}
       propertyPath: m_Name
       value: SpikeArea
