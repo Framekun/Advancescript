@@ -5,16 +5,19 @@ using UnityEngine.UI;
 
 public class HealthBar : MonoBehaviour
 {
-    public Slider HealthSlider;
+    public HPScript Hploader;
+    public PlayerHP PlayerHP;
+    public Image FillImage;
+    private Slider Slider;
 
-    public void SetSlider(float amount)
+    private void Awake()
     {
-        HealthSlider.value = amount;
+        Slider = GetComponent<Slider>();
     }
 
-    public void SetSliderMax(float amount)
+    private void Update()
     {
-        HealthSlider.maxValue = amount;
-        SetSlider(amount);
+        float fillvalue = PlayerHP.PlayerCurrentHP / Hploader.hp;
+        Slider.value = fillvalue;
     }
 }

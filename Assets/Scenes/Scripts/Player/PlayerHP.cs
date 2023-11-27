@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class PlayerHP : MonoBehaviour
 {
-    [SerializeField] private float PlayerCurrentHP;
+    [SerializeField] public float PlayerCurrentHP;
     [SerializeField] private HPScript Hploader;
     [SerializeField] private string EnemyName;
     [SerializeField] private PlayerDiedSystem Dead;
