@@ -12,7 +12,7 @@ public class EnemyBehavior : MonoBehaviour
     private Transform Player;
     private bool FollowingPlayer = false;
     [SerializeField] private string HitboxName;
-    private Animator Anim;
+    [SerializeField] private Animator Anim;
 
     void Start()
     {
