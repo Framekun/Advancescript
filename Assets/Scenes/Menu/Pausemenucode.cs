@@ -13,11 +13,7 @@ public class Pausemenucode : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(Input.GetKeyDown(KeyCode.Escape))
-        {
-
-        }
-        if(Input.GetKeyUp(KeyCode.Q))
+        if(Input.GetKeyUp(KeyCode.Escape))
         {
             Savesystem.Instance.SaveGameToCurrentSlot(Sceneloader.Instance.GetCurrentActiveSceneName(), () =>
             {

@@ -7,6 +7,7 @@ public class PlayerHP : MonoBehaviour
     [SerializeField] private float PlayerCurrentHP;
     [SerializeField] private HPScript Hploader;
     [SerializeField] private string EnemyName;
+    [SerializeField] private PlayerDiedSystem Dead;
 
     private float GetDamage;
     void Start()
@@ -18,8 +19,7 @@ public class PlayerHP : MonoBehaviour
     {
         if (PlayerCurrentHP <= 0)
         {
-            Destroy(gameObject);
-            Debug.Log("Game Over");
+            Dead.Deadload();
         }
     }
 
