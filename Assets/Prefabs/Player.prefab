@@ -447,7 +447,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Controller: {fileID: 6629738270982413271}
   ReadSpeedValue: 0
-  SplintSpeed: 20
+  SplintSpeed: 15
   PlayerMove: {fileID: 8453479253462231562}
 --- !u!114 &6629738270982413271
 MonoBehaviour:

@@ -8,6 +8,6 @@ public class PlayerDiedSystem : MonoBehaviour
     [SerializeField] private string SceneName;
     public void Deadload()
     {
-        SceneManager.LoadScene(SceneName);
+        Sceneloader.Instance.LoadMenu(SceneName);
     }
 }
