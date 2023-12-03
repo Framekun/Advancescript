@@ -992,6 +992,10 @@ PrefabInstance:
       value: Gate
       objectReference: {fileID: 0}
     - target: {fileID: 6880152191249545565, guid: ca32e2a533c4c8a429de2ea66c300f6f, type: 3}
+      propertyPath: _markerName
+      value: Left2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6880152191249545565, guid: ca32e2a533c4c8a429de2ea66c300f6f, type: 3}
       propertyPath: _nextLocation
       value: Level_02
       objectReference: {fileID: 0}
@@ -5922,7 +5926,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6880152191249545565, guid: ca32e2a533c4c8a429de2ea66c300f6f, type: 3}
       propertyPath: _markerName
-      value: Left2
+      value: Left3
       objectReference: {fileID: 0}
     - target: {fileID: 6880152191249545565, guid: ca32e2a533c4c8a429de2ea66c300f6f, type: 3}
       propertyPath: _nextLocation
@@ -7503,7 +7507,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1010495527888339011, guid: d515a3b1d3cc50244b45c0a8272c4776, type: 3}
       propertyPath: _markerName
-      value: Left2_Back
+      value: Left3_Back
       objectReference: {fileID: 0}
     - target: {fileID: 6588336661881916483, guid: d515a3b1d3cc50244b45c0a8272c4776, type: 3}
       propertyPath: m_Name
@@ -8025,7 +8029,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9154315826605554403, guid: 08cf787981355fd47b44b6e4c953d7ac, type: 3}
       propertyPath: _markerName
-      value: Right
+      value: Left2_Back
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
