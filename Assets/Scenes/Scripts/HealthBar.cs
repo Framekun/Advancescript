@@ -21,6 +21,14 @@ public class HealthBar : MonoBehaviour
     }
     private void Update()
     {
+        if(Slider.value <= Slider.minValue)
+        {
+            FillImage.enabled = false;
+        }
+        if (Slider.value > Slider.minValue && !FillImage.enabled)
+        {
+            FillImage.enabled = true;
+        }
 
         float fillvalue = PlayerHPPoint.PlayerCurrentHP / Hploader.hp;
         Slider.value = fillvalue;
