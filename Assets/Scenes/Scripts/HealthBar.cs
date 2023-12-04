@@ -20,7 +20,7 @@ public class HealthBar : MonoBehaviour
     {
         if (PlayerHPPoint == null)
         {
-          TryGetComponent(out PlayerHPPoint);
+            TryGetComponent(out PlayerHPPoint);
         }
         else
         {
@@ -34,7 +34,6 @@ public class HealthBar : MonoBehaviour
         {
             FillImage.enabled = true;
         }
-
         float fillvalue = PlayerHPPoint.PlayerCurrentHP / Hploader.hp;
         Slider.value = fillvalue;
     }
