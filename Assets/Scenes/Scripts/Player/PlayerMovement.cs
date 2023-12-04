@@ -95,7 +95,13 @@ public class PlayerMovement : MonoBehaviour
 
     void JumpCode(InputAction.CallbackContext context)
     {
-        if (JumpCount < JumpIndex)
+        if (JumpCount == 0 && OnGround == true)
+        {
+            IsJump = true;
+            Rb.velocity = new Vector2(Rb.velocity.x, JumpPower);
+            JumpCount++;
+        }
+        if (JumpCount < JumpIndex && OnGround == false)
         {
             IsJump = true;
             Rb.velocity = new Vector2(Rb.velocity.x, JumpPower);
