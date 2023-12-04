@@ -727,7 +727,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0a28a55b9dfb08e4aae01465023651b7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _firstlocationname: SampleScene
+  _firstlocationname: Level_01
   _continuebutton: {fileID: 1892632795}
 --- !u!4 &1685035383
 Transform:
