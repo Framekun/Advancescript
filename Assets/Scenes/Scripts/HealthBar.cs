@@ -20,11 +20,15 @@ public class HealthBar : MonoBehaviour
     {
         if (PlayerHPPoint == null)
         {
-            TryGetComponent(out PlayerHPPoint);
-        }
-        else
-        {
-            return;
+            var PlayerObject = GameObject.FindGameObjectWithTag("Player");
+            if (PlayerObject != null)
+            {
+                PlayerHPPoint = PlayerObject.GetComponent<PlayerHP>();
+            }
+            else
+            {
+                return;
+            }
         }
         if (Slider.value <= Slider.minValue)
         {
@@ -34,6 +38,7 @@ public class HealthBar : MonoBehaviour
         {
             FillImage.enabled = true;
         }
+
         float fillvalue = PlayerHPPoint.PlayerCurrentHP / Hploader.hp;
         Slider.value = fillvalue;
     }
