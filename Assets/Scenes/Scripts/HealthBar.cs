@@ -13,7 +13,7 @@ public class HealthBar : MonoBehaviour
 
     private void Awake()
     {
-        Slider = GetComponent<Slider>();
+        //Slider = GetComponent<Slider>();
        
     }
     private void Update()
@@ -30,16 +30,12 @@ public class HealthBar : MonoBehaviour
                 return;
             }
         }
-        if (Slider.value <= Slider.minValue)
-        {
-            FillImage.enabled = false;
-        }
-        if (Slider.value > Slider.minValue && !FillImage.enabled)
-        {
-            FillImage.enabled = true;
-        }
 
-        float fillvalue = PlayerHPPoint.PlayerCurrentHP / Hploader.hp;
-        Slider.value = fillvalue;
+        if(PlayerHPPoint != null)
+        {
+            float fillvalue = PlayerHPPoint.PlayerCurrentHP / Hploader.hp;
+            FillImage.fillAmount = fillvalue;
+        }
+        
     }
 }

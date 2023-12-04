@@ -819,7 +819,7 @@ MonoBehaviour:
   Hploader: {fileID: 11400000, guid: 045371115841ca54e9559bf64a1b4a68, type: 2}
   PlayerHPPoint: {fileID: 0}
   FillImage: {fileID: 235629453}
-  Slider: {fileID: 0}
+  Slider: {fileID: 235629451}
 --- !u!114 &235629453
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -849,7 +849,7 @@ MonoBehaviour:
   m_FillClockwise: 1
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
-  m_PixelsPerUnitMultiplier: 1
+  m_PixelsPerUnitMultiplier: 71.77
 --- !u!222 &235629454
 CanvasRenderer:
   m_ObjectHideFlags: 0
