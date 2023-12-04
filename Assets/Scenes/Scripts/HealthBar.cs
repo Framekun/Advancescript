@@ -14,14 +14,19 @@ public class HealthBar : MonoBehaviour
     private void Awake()
     {
         Slider = GetComponent<Slider>();
-        if (PlayerHPPoint == null)
-        {
-            TryGetComponent(out PlayerHPPoint);
-        }
+       
     }
     private void Update()
     {
-        if(Slider.value <= Slider.minValue)
+        if (PlayerHPPoint == null)
+        {
+          TryGetComponent(out PlayerHPPoint);
+        }
+        else
+        {
+            return;
+        }
+        if (Slider.value <= Slider.minValue)
         {
             FillImage.enabled = false;
         }
