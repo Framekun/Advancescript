@@ -122,7 +122,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Animation: {fileID: 2880938802094586249}
   PlayerMove: {fileID: 8453479253462231562}
-  PlayerAttack: {fileID: 5681281280969955722}
+  PlayerAttack: {fileID: 0}
 --- !u!1 &5497506001055664229
 GameObject:
   m_ObjectHideFlags: 0
@@ -285,10 +285,7 @@ GameObject:
   - component: {fileID: 1717981216202037974}
   - component: {fileID: 9073186208049199949}
   - component: {fileID: 7148124739852814734}
-  - component: {fileID: 3974840412055902576}
   - component: {fileID: 8453479253462231562}
-  - component: {fileID: 5681281280969955722}
-  - component: {fileID: 2214964826300406625}
   - component: {fileID: 6629738270982413271}
   - component: {fileID: 2196121813624690299}
   - component: {fileID: 1116651867691963938}
@@ -378,22 +375,6 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
---- !u!114 &3974840412055902576
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6088434554580782292}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2fc48892605dee04fa269ad7484d8d5f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  PlayerCurrentHP: 0
-  Hploader: {fileID: 11400000, guid: 045371115841ca54e9559bf64a1b4a68, type: 2}
-  EnemyName: Enemy
-  Dead: {fileID: 1116651867691963938}
 --- !u!114 &8453479253462231562
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -417,38 +398,8 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 8
   OnGround: 1
-  Splint: {fileID: 2214964826300406625}
+  Splint: {fileID: 0}
   ItemCollect: {fileID: 0}
---- !u!114 &5681281280969955722
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6088434554580782292}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5de8331b2a0652c478157be648258e77, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Controller: {fileID: 6629738270982413271}
-  Attacking: 0
---- !u!114 &2214964826300406625
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6088434554580782292}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2ec235d72b7261d489a34c4dce922b84, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Controller: {fileID: 6629738270982413271}
-  ReadSpeedValue: 0
-  SplintSpeed: 15
-  PlayerMove: {fileID: 8453479253462231562}
 --- !u!114 &6629738270982413271
 MonoBehaviour:
   m_ObjectHideFlags: 0
